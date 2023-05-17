@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Hind+Madurai:wght@300&family=Italianno&family=Montserrat:wght@100;500;700&family=Oswald&display=swap');
+
+.general_font{
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+}
+.btn-font{
+    font-family: 'Montserrat', sans-serif;
+}
+.title-font{
+    font-family: 'Great Vibes', cursive;
+}
+.aegt-navbar{
+    background-color: rgba(0, 0, 0, 0.55);
+    box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.54);
+    z-index: 99;
+}
+
+.aegt-navbar .nav-link{
+    border-bottom: 1px solid transparent;
+    transition: padding-bottom .4s ease-in-out, border-color .3s ease ;
+}
+
+.nav-link{
+    color: #d28503;
+}
+.aegt-navbar .nav-link:hover{
+    padding-bottom: 20px;
+    border-color: #d28503;
+}
+.logo_navbar{
+    height: 150px;
+    width: 150px;
+}
+
+.btn-sermon{
+    color: #d28503;
+    border-color: #d28503;
+    transition: 0.5s;
+}
+
+.btn-sermon:hover,
+.btn-sermon:active{
+    background-color: #d28503;
+    color: #fff;
+}
+
+.banner{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/Bible.jpg') center center fixed no-repeat;
+    height: 800px;
+    background-size: cover;
+
+}
+.banner-text{
+    font-size: 48px;
+    font-weight: 400;
+    color: #fff;
+}
+.btn-joinUs,
+.btn-contact{
+    color: #ea7d73;
+    border-color: #ea7d73;
+    transition: 0.5s;
+}
+
+.btn-joinUs:hover,
+.btn-joinUs:active,
+.btn-contact:hover,
+.btn-contact:active{
+    background-color: #ea7d73;
+    color: #fff;
+}
+.btn-joinUs:focus,
+.btn-contact:focus,
+.btn-sermon:focus{
+    outline: none;
+    box-shadow: none;
+}
+.photo-info{
+    opacity: 4;
+}
+.title-color{
+    color: #ea7d73;
+    font-weight: 600;
+}
+.text-format{
+    text-align: justify;
+}
+.agenda{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/toulouse1.jpg') center center fixed no-repeat;
+    max-height: 600px;
+    background-size: cover;
+}
+.believe{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/bible_ouverte.jpg') center center fixed no-repeat;
+    max-height: 1400px;
+    background-size: cover;
+}
+
+.believe-title{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
