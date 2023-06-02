@@ -3,9 +3,8 @@
 require_once "config/Security.php";
 require_once "model/AdminModel.php";
 
-require_once "config/PutInJsonFormat.php";
 
-class AdminController extends PutInJsonFormat
+class AdminController
 {
     private $adminModel;
 

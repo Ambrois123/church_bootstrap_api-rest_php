@@ -11,7 +11,7 @@
     font-family: 'Great Vibes', cursive;
 }
 .aegt-navbar{
-    background-color: rgba(0, 0, 0, 0.55);
+    /* background-color: rgba(0, 0, 0, 0); */
     box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.54);
     z-index: 99;
 }
@@ -46,10 +46,9 @@
 }
 
 .banner{
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/Bible.jpg') center center fixed no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://localhost/aget_front/images/Bible.jpg') center center fixed no-repeat;
     height: 800px;
     background-size: cover;
-
 }
 .banner-text{
     font-size: 48px;
@@ -87,12 +86,12 @@
     text-align: justify;
 }
 .agenda{
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/toulouse1.jpg') center center fixed no-repeat;
-    max-height: 600px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://localhost/aget_front/images/toulouse1.jpg') center center fixed no-repeat;
+    max-height: 2000px;
     background-size: cover;
 }
 .believe{
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/bible_ouverte.jpg') center center fixed no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://localhost/aget_front/images/bible_ouverte.jpg') center center fixed no-repeat;
     max-height: 1400px;
     background-size: cover;
 }
@@ -101,4 +100,105 @@
     text-decoration: none;
     color: black;
     cursor: pointer;
+}
+
+.progressBar{
+    /*variable pour différents navigateur*/
+    --bar-bg: #ffe3d4;
+    --seek-before-width: 0px;
+    --seek-before-color: #ffc2a1;
+    --knobby: #3452a5;
+    --selectedKnobby: #26c9c3;
+
+    appearance: none;
+    background: black;
+    /* border-radius: 10px; */
+    position: relative;
+    width: 100%;
+    height: 1.2px;
+    outline: none;
+}
+/*progress bar for safari */
+
+.progressBar::-webkit-slider-runnable-track{
+    background: black;
+    /* border-radius: 10px; */
+    position: relative;
+    width: 100%;
+    height: 1.2px;
+    outline: none;
+}
+
+/*progress bar for firefox */
+.progressBar::-moz-range-track{
+    background: black;;
+    /* border-radius: 10px; */
+    position: relative;
+    width: 100%;
+    height: 1.2px;
+    outline: none;
+}
+.progressBar::-moz-focus-outer{
+    border: 0;
+}
+/*progress bar for chrome safari*/
+.progressBar::before{
+    content: '';
+    height: 1.2px;
+    width: var(--seek-before-width);
+    background: var(--seek-before-color);
+    /* border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+}
+/*progress bar for firefox */
+.progressBar::-moz-range-progress{
+    background-color: var(--seek-before-color);
+    /* border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px; */
+    height: 1.2px;
+}
+
+/*knobby -chrome safari*/
+.progressBar::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 11px;
+    width: 11px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgb(190, 190, 190);
+    cursor: pointer;
+    position: relative;
+    margin: -5px 0 0 0;
+    z-index: 2;
+    /* box-sizing: border-box; */
+}
+/*knobby while dragging-chrome safari*/
+.progressBar:active::-webkit-slider-thumb {
+    transform: scale(1);
+    background: #d28503;
+}
+
+/*knobby firefox*/
+.progressBar::-moz-range-thumb{
+    height: 11px;
+    width: 11px;
+    border-radius: 50%;
+    border: transparent;
+    background-color: #d28503;
+    transition: 0.5;
+    transition: 0.5;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+}
+/*knobby while dragging-firefox*/
+.progressBar:active::-moz-range-thumb{
+    transform: scale(1);
+    background: #d28503;
 }

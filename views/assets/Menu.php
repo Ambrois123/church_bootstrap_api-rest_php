@@ -29,11 +29,11 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Etudes bibliques
+            Evénements
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="<?= URL ?>admin/etudes/visualisation">Visualisation</a>
-            <a class="dropdown-item" href="<?= URL ?>admin/etudes/creation">Création</a>
+            <a class="dropdown-item" href="<?= URL ?>admin/evenement/visualisation">Visualisation</a>
+            <a class="dropdown-item" href="<?= URL ?>admin/evenement/creation">Création</a>
           </div>
         </li>
         <li class="nav-item">

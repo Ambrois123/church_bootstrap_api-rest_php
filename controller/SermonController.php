@@ -1,59 +1,26 @@
 <?php 
 
 require_once './model/SermonModel.php';
-require_once './config/PutInJsonFormat.php';
-require_once './config/Security.php';
-require_once './utilities/AddAudio.php';
 
-class SermonController extends PutInJsonFormat
+
+class SermonController
 {
     private $sermonModel;
 
     public function __construct()
     {
         $this->sermonModel = new SermonModel();
+        $this->sermonModel->readSermons();
     }
 
-    public function readSermons()
-    {
-        $sermons = $this->sermonModel->getSermonsFromBddd();
-        $this->sendJson($this->formatSermonData($sermons));
-        // echo "<pre>";
-        // print_r($sermons);
-        // echo "</pre>";
-    }
-
-    public function readOneSermon($id)
-    {
-       $sermon = $this->sermonModel->getSermonById($id);
-       $this->sendJson($sermon);
-    }
-
-    private function formatSermonData($items)
-    {
-        $tab =[];
-
-        foreach($items as $item){
-            $tab[$item["id"]] = [
-                "id" => $item['id'],
-                "date" => $item['date'],
-                "nom" => $item['title'],
-                "theme" => $item['theme'],
-                "resume" => $item['resume'],
-                "audio" => $item['audio'],
-                "auteur" => $item['author']
-            ];
-        }
-        return $tab;
-    }
-
-    public function DisplaySermons()
+    public function displaySermons()
     {
         try{
             if(Security::verifAccess()){
-                $sermons = $this->sermonModel->getSermonsFromBddd();
+                $sermons = $this->sermonModel->getSermons();
                 
-                require "views/VisualisationSermons.php";
+                require "./views/VisualisationSermons.php";
+                
             }
             else{
                 throw new Exception("Vous n'avez pas les droits d'accès à cette page");
@@ -65,17 +32,20 @@ class SermonController extends PutInJsonFormat
         }
     }
 
-    public function getPageCreation()
+    public function displayOneSermon($id)
     {
-        require "views/CreateSermon.php";
+       $sermon = $this->sermonModel->getSermonById($id);
+       
     }
 
-    public function createSermon()
+    public function getPredication()
     {
+        $sermons = $this->sermonModel->getSermons();
+        require "./viewsFront/predications.php";
+    }
 
-        // $file = $_FILES['audio'];
-        // $repertoire ="public/sermons/";
-        // $fileAdded = $this->addAudio($file, $repertoire);
+    public function insertSermon()
+    {
         try{
             //vérification de l'access
         if (Security::verifAccess()) {
@@ -84,16 +54,15 @@ class SermonController extends PutInJsonFormat
             $title = Security::secureHTML($_POST['title']);
             $theme = Security::secureHTML($_POST['theme']);
             $resume = Security::secureHTML($_POST['resume']);
-            $audio = "";
-            //Vérification de l'existence du fichier audio et ajout
-            if($_FILES['audio']['size'] > 0){
-                $repertoire = "public/sermons/";
-                $audio = addAudio($_FILES['audio'], $repertoire);
-            }
+
+            $file = $_FILES['audio'];
+            $repertoire = "public/sermons/";
+            $audioAdded = $this->addAudio($file, $repertoire);
+
             $author = Security::secureHTML($_POST['author']);
 
-            $this->sermonModel->insertSermonInBdd($date, $title, $theme, $resume, $audio, $author);
-
+            $this->sermonModel->createSermons($date, $title, $theme, $resume, $audioAdded, $author);
+            
             $_SESSION['alert'] = [
                 "type" => "success",
                 "message" => "Le sermon a bien été crée"
@@ -111,35 +80,35 @@ class SermonController extends PutInJsonFormat
         }
     }
 
-    public function DeleteSermon()
+    public function DeleteSermon($id)
     {
         try{
-
-            if(Security::verifAccess()){
-
-                $idSermon = $this->sermonModel->deleteSermonFromBdd((int)Security::secureHTML($_POST['sermon_id']));
-
-                //récupération du  fichier audio
-                $audio = $this->sermonModel->getSermonAudioForDelete($idSermon);
-
-                //suppression du fichier audio avec methode unlink()
-
-                unlink("public/audio/" . $audio);
-
-                $_SESSION['alert'] = [
-                    "type" => "success",
-                    "message" => "Le sermon a bien été supprimé"
-                ];
-                header("Location: ".URL."admin/sermons/visualisation");
-            }else{
-                throw new Exception("Vous n'avez pas les droits d'accès à cette page");
+                
+                if(Security::verifAccess()){
+    
+                    $sermonAudio = $this->sermonModel->getSermonById($_POST['sermon_id'])->getAudio();
+    
+                    unlink("public/sermons/".$sermonAudio);
+    
+                    $this->sermonModel->deleteSermonFromBdd($id);
+    
+                    $_SESSION['alert'] =[
+                        "type" => "danger",
+                        "message" => "Le sermon a bien été supprimé"
+                    ];
+    
+                    header("Location: ".URL."admin/sermons/visualisation");
+    
+                }else{
+                    throw new Exception("Vous n'avez pas les droits d'accès à cette page");
+                }
             }
-        }
-        catch(Exception $e){
-            $msg = $e->getMessage();
-            echo $msg;
+            catch(Exception $e){
+                $msg = $e->getMessage();
+                echo $msg;
         }
     }
+
 
     public function getUpdatePage($id)
     {
@@ -148,21 +117,40 @@ class SermonController extends PutInJsonFormat
         require "views/UpdateSermon.php";
     }
 
+
     public function updateSermon()
     {
         //vérification de l'access
         try{
             if (Security::verifAccess()) {
+
+                //Récupération du fichier audio actuel
+
+                $currentAudio = $this->sermonModel->getSermonById($_POST['ident'])->getAudio();
+                
+                //Vérification de l'existence du fichier audio
+                $file = $_FILES['audio'];
+
+                if($file['size'] > 0){
+
+                    //Suppression de l'ancien fichier audio
+                    unlink("public/sermons/".$currentAudio);
+
+                    //Ajout du nouveau fichier audio
+                    $repertoire = "public/sermons/";
+                    $audioAdded = $this->addAudio($file, $repertoire);
+                }else{
+                    $audioAdded = $currentAudio;
+                }
             
-                $id = (int)Security::secureHTML($_POST['id']);
-                $date = Security::secureHTML($_POST['date']);
-                $title = Security::secureHTML($_POST['title']);
-                $theme = Security::secureHTML($_POST['theme']);
-                $resume = Security::secureHTML($_POST['resume']);
-                $audio = Security::secureHTML($_POST['audio']);
-                $author = Security::secureHTML($_POST['author']);
+                // $id = Security::secureHTML($_POST['ident']);
+                // $date = Security::secureHTML($_POST['date']);
+                // $title = Security::secureHTML($_POST['title']);
+                // $theme = Security::secureHTML($_POST['theme']);
+                // $resume = Security::secureHTML($_POST['resume']);
+                // $author = Security::secureHTML($_POST['author']);
     
-                $this->sermonModel->updateSermonInBdd($id, $date, $title, $theme, $resume, $audio, $author);
+                $this->sermonModel->updateSermon($_POST['ident'], $_POST['date'], $_POST['title'], $_POST['theme'], $_POST['resume'], $audioAdded, $_POST['author']);
                 
 
                 $_SESSION['alert'] = [
@@ -181,6 +169,25 @@ class SermonController extends PutInJsonFormat
             echo $msg;
         }
         
+    }
+
+    private function AddAudio($file, $dir){
+        if(!isset($file['name']) || empty($file['name']))
+            throw new Exception("Vous devez sélectionner un fichier son");
+    
+        if(!file_exists($dir)) mkdir($dir,0777);
+    
+        $extension = strtolower(pathinfo($file['name'],PATHINFO_EXTENSION));
+        $random = rand(0,99999);
+        $target_file = $dir.$random."_".$file['name'];
+        
+        if($extension !== "mpeg3" && $extension !== "mp4" && $extension !== "wav" && $extension !== "mp3")
+            throw new Exception("L'extension du fichier n'est pas reconnu");
+        if(file_exists($target_file))
+            throw new Exception("Le fichier existe déjà");
+        if(!move_uploaded_file($file['tmp_name'], $target_file))
+            throw new Exception("l'ajout du fichier son n'a pas fonctionné");
+        else return ($random."_".$file['name']);
     }
 
     

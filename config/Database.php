@@ -1,27 +1,23 @@
 <?php 
 
-class Database 
+abstract class Database
 {
+    private static $pdo;
 
-    private $host = "localhost";
-    private $db_name = "church_back";
-    private $username = "root";
-    private $password = "";
-    public $conn;
-
-    // On crée la méthode getConnection() qui va nous permettre de se connecter à la base de données
-
-    public function getConnection()
+    private static function setBdd()
     {
-        $this->conn = null;
+        self::$pdo = new PDO('mysql:host=localhost;dbname=aegt_server;charset=utf8', 'root', '');
+        self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+    }
 
-        try{
-            $this->conn = new PDO("mysql:host=".$this->host.";dbname=".$this->db_name, $this->username, $this->password);
-            $this->conn->exec("set names utf8");
-        }catch(PDOException $exception){
-            echo "Erreur de connexion : ".$exception->getMessage();
+    protected function getConnection()
+    {
+        if(self::$pdo == null)
+        {
+            self::setBdd();
         }
-
-        return $this->conn;
+        
+        return self::$pdo;
     }
 }
+?>
