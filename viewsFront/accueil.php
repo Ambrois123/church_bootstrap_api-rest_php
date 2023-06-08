@@ -11,7 +11,7 @@ ob_start();
           <div class="col-md-6">
             <h1 class="text-center title-font py-3 banner-text">Jésus dit "Venez à moi, vous qui êtes accablés sous le poids d'un lourd 
               fardeau et je vous donnerai du repos"</h1>
-            <p class="text-center">
+            <p class="text-center d-flex justify-content-sm-center">
               <a href="#contact" class="btn btn-joinUs rounded-0 btn-lg me-5">Nous visiter</a>
               <a href="predications" class="btn btn-sermon rounded-0 btn-lg">Prédications</a>
             </p>

@@ -19,16 +19,16 @@ ob_start();
   </div>
       <div class="container">
         <div class="row py-4 g-1">
-        <?php foreach($sermons as $sermon) :?>
+        <?php for($i=0; $i < count($sermons); $i++):?>
           <div class="col-md-4">
           
             <div class="card rounded-0" style="box-shadow: 3px 4px 5px 0px rgba(0,0,0,0.75);">
               <div class="card-body">
-                <h6 class="card-title">Titre : <?= $sermon->getTitle()?></h6>
-                <p class="card-text">Thème : <?= $sermon->getTheme() ?></p>
-                <p class="card-text">Date : <?= $sermon->getDate() ?></p>
-                <p class="card-text">Résumé : <?= $sermon->getResume() ?></p>
-                <p class="card-text">Orateur : <?= $sermon->getAuthor() ?></p>                
+                <h6 class="card-title">Titre : <?= $sermons[$i]->getTitle()?></h6>
+                <p class="card-text">Thème : <?= $sermons[$i]->getTheme() ?></p>
+                <p class="card-text">Date : <?= $sermons[$i]->getDate() ?></p>
+                <p class="card-text">Résumé : <?= $sermons[$i]->getResume() ?></p>
+                <p class="card-text">Orateur : <?= $sermons[$i]->getAuthor() ?></p>                
                 <div class="">
                   <input type="range" class='progressBar' min="0" value="0" 
                   style="
@@ -41,7 +41,10 @@ ob_start();
                   ">
                   <span id="elapsed" style="font-size: 12px;">0:00</span> / <span id="track-time" style="font-size: 12px;">0:00</span>
                   <div class="">
-                    <audio class="audio" src="public/sermons/<?=$sermon->getAudio() ?>" type="audio/ogg"  style="width: 100%;"></audio>
+                    <audio class="audio" 
+                        src="public/sermons/<?=$sermons[$i]->getAudio(); ?>" 
+                        type="audio/ogg"  
+                        style="width: 100%;"></audio>
                     <i class="fa-sharp fa-regular fa-circle-play fa-xl play-btn"></i>
                     <i class="fa-regular fa-circle-pause fa-xl pause-btn" style="display: none;"></i>
                     <i class="fa-regular fa-circle-stop fa-xl stop-btn" style="display: none;"></i>
@@ -54,7 +57,7 @@ ob_start();
               </div>
               </div>
             </div>
-            <?php endforeach; ?>
+            <?php endfor; ?>
           </div>
           
         </div>

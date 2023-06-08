@@ -41,7 +41,12 @@ class SermonController
     public function getPredication()
     {
         $sermons = $this->sermonModel->getSermons();
+
+        // echo "<pre>";
+        // print_r($sermons);
+        // echo "</pre>";
         require "./viewsFront/predications.php";
+        
     }
 
     public function insertSermon()

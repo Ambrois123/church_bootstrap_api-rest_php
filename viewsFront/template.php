@@ -4,6 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Nous sommes une église, une assemblée chrétienne qui désire connaître Dieu 
+    par l'étude sa parole, la Bible et l'obéissance à sa parole. Nous accordons aussi une grande place à la communion fraternelle autour de la parole de Dieu. Vous êtes les bienvenues. ">
 
     <!--font awesome-->
 
@@ -16,7 +18,7 @@
     <!--style CSS-->
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <title>AEGT</title>
+    <title>Assemblée Evangélique de la Grâce de Toulouse -AEGT</title>
   </head>
   <body>
 
@@ -24,7 +26,10 @@
 
     <nav class="aegt-navbar navbar navbar-expand-xl position-fixed bg-dark w-100 general_font">
         <div class="container-fluid">
-          <img src="images/logo.png" alt="logo_aget" class="logo_navbar">
+          <a class="navbar-brand" href="accueil">
+            <img src="images/logo.png" alt="logo_aget" class="logo_navbar">
+          </a>
+          <!-- <img src="images/logo.png" alt="logo_aget" class="logo_navbar"> -->
           <button 
             class="navbar-toggler rounded-0" 
             type="button" 
