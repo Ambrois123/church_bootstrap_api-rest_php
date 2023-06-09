@@ -7,7 +7,7 @@ ob_start();
   <div class="card-body">
     <div class="container">
     <h1 class="card-title">JESUS-CHRIST, DIEU LE FILS</h1>
-    <p class="card-text m-5 ">
+    <p class="card-text m-5">
     <p>
         <p> 1- Jésus-Christ, le Fils, est pleinement Dieu et pleinement homme, le seul sauveur pour les péchés du monde. </br>
 Jean 1:1: Au commencement de toutes choses, la Parole existait déjà; celui qui est la Parole était avec Dieu, et il était Dieu.</br> 

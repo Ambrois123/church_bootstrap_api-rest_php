@@ -4,10 +4,10 @@ ob_start();
 
 <div class="card mb-3">
   <img src="images/bible_ouverte_reduite2.jpg" class="card-img-top" alt="bible ouverte" >
-  <div class="card-body">
+  <div class="card-body text-justify">
         <div class="container">
         <h1 class="card-title">LA TRINITE</h1>
-    <p class="card-text m-5">
+    <p class="card-text m-5 ">
     <p>
         <p>
         Dieu est trinitaire. Il n'y a qu'un seul Dieu, infini, éternel, tout-puissant et parfait en sainteté, vérité et amour (1). Dans l'unité de la divinité il y a trois personnes, Père, Fils et Saint-Esprit, co-existantes, co-égales,
