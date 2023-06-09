@@ -5,7 +5,8 @@ ob_start();
 <div class="card mb-3">
   <img src="images/bible_ouverte_reduite2.jpg" class="card-img-top" alt="bible ouverte" >
   <div class="card-body">
-    <h1 class="card-title">DIEU, LE PERE</h1>
+        <div class="container">
+        <h1 class="card-title">DIEU, LE PERE</h1>
     <p class="card-text m-5">
     <p>
         <p>
@@ -52,7 +53,7 @@ Romains 11:36 : Car tout vient de lui, tout existe par lui et pour lui. A Dieu s
 Apocalypse 4:11 : Seigneur, notre Dieu, tu es digne de recevoir la gloire, l’honneur et la puissance. Car c’est toi qui as créé toutes choses, elles sont venues à l’existence parce que tu l’as voulu. 
         </p>
     </p>
-
+        </div>
   </div>
 </div>
 

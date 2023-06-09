@@ -5,6 +5,7 @@ ob_start();
 <div class="card mb-3">
   <img src="images/bible_ouverte_reduite2.jpg" class="card-img-top" alt="bible ouverte" >
   <div class="card-body">
+    <div class="container">
     <h1 class="card-title">LE SAINT-ESPRIT</h1>
     <p class="card-text m-5">
     <p>
@@ -58,6 +59,7 @@ Ephésiens 4:30: N’attristez pas le Saint-Esprit que Dieu vous a accordé; il 
 1 Corinthiens 14:1: Cherchez donc avant tout à recevoir l’amour. Désirez aussi les dons spirituels, surtout celui de transmettre les messages reçus de Dieu. 
     </p>
 
+    </div>
   </div>
 </div>
 

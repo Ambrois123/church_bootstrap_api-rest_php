@@ -5,6 +5,7 @@ ob_start();
 <div class="card mb-3">
   <img src="images/bible_ouverte_reduite2.jpg" class="card-img-top" alt="bible ouverte" >
   <div class="card-body">
+    <div class="container">
     <h1 class="card-title">JESUS-CHRIST, DIEU LE FILS</h1>
     <p class="card-text m-5 ">
     <p>
@@ -43,6 +44,7 @@ Hébreux 1:3-4: Le Fils reflète la splendeur de la gloire divine, il est la rep
 </p>
     </p>
 
+    </div>
   </div>
 </div>
 

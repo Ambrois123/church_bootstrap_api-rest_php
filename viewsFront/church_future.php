@@ -5,6 +5,7 @@ ob_start();
 <div class="card mb-3">
   <img src="images/bible_ouverte_reduite2.jpg" class="card-img-top" alt="bible ouverte" >
   <div class="card-body">
+    <div class="container">
     <h1 class="card-title">LE FUTUR DE L'EGLISE</h1>
     <p class="card-text m-5">
       <p>
@@ -20,6 +21,7 @@ Apocalypse 19:7: Réjouissons-nous et soyons heureux, rendons-lui gloire ! Car l
       </p>
 
     </p>
+    </div>
   </div>
 </div>
 

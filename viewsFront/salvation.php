@@ -5,6 +5,7 @@ ob_start();
 <div class="card mb-3">
   <img src="images/bible_ouverte_reduite2.jpg" class="card-img-top" alt="bible ouverte" >
   <div class="card-body">
+    <div class="container">
     <h1 class="card-title">LE SALUT</h1>
     <p class="card-text m-5">
     <p>
@@ -31,6 +32,7 @@ Galates 6:14-15: Quant à moi, je ne veux me vanter que de la croix de notre Sei
 
     </p>
 
+    </div>
   </div>
 </div>
 

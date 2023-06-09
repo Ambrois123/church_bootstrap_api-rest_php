@@ -5,6 +5,7 @@ ob_start();
 <div class="card mb-3">
   <img src="images/bible_ouverte_reduite2.jpg" class="card-img-top" alt="bible ouverte" >
   <div class="card-body">
+    <div class="container">
     <h1 class="card-title">L'EGLISE</h1>
     <p class="card-text m-5">
     <p>
@@ -26,6 +27,7 @@ Matthieu 28:19-20: Allez donc auprès des gens de toutes les nations et faites d
 
     </p>
 
+    </div>
   </div>
 </div>
 

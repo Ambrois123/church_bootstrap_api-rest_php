@@ -5,7 +5,8 @@ ob_start();
 <div class="card mb-3">
   <img src="images/bible_ouverte_reduite2.jpg" class="card-img-top" alt="bible ouverte" >
   <div class="card-body">
-    <h1 class="card-title">LA TRINITE</h1>
+        <div class="container">
+        <h1 class="card-title">LA TRINITE</h1>
     <p class="card-text m-5">
     <p>
         <p>
@@ -52,6 +53,7 @@ Jean 16:13-15 : Quand viendra l’Esprit de vérité, il vous conduira dans tout
         </p>
     </p>
 
+        </div>
   </div>
 </div>
 

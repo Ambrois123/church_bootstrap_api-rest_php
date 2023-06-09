@@ -5,6 +5,7 @@ ob_start();
 <div class="card mb-3">
   <img src="images/bible_ouverte_reduite2.jpg" class="card-img-top" alt="bible ouverte" >
   <div class="card-body">
+    <div class="container">
     <h1 class="card-title">LA FIN DE TOUTES CHOSES</h1>
     <p class="card-text m-5">
     <p>
@@ -24,6 +25,7 @@ Apocalypse 21:1-4: Alors je vis un nouveau ciel et une nouvelle terre. Le premie
 
     </p>
 
+    </div>
   </div>
 </div>
 

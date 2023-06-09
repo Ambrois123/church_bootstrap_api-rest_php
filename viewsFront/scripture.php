@@ -5,7 +5,8 @@ ob_start();
 <div class="card mb-3">
   <img src="images/bible_ouverte_reduite2.jpg" class="card-img-top" alt="bible ouverte" >
   <div class="card-body">
-    <h1 class="card-title">LES ECRITURES</h1>
+        <div class="container">
+        <h1 class="card-title">LES ECRITURES</h1>
     <p class="card-text m-5">
     <p>
         Les Écritures de l'Ancien et du Nouveau Testaments sont la Parole infaillible de Dieu, la source et la norme de toute notre foi et pratique (1). Leur but est de nous conduire au salut par la foi en Jésus-Christ. Elles sont entièrement inspirées par Dieu et servent donc de guide, ayant autorité pour la compréhension, la vie et le ministère chrétiens (2). Les Écritures, en accord avec tout ce qu'elles affirment, sont sans erreur, totalement dignes de confiance (3). Nous ne devons pas ajouter aux Écritures, ni les compléter, ni les modifier par une tradition plus tardive ou une supposée révélation (4). Toute formulation doctrinale, que ce soit un credo, une confession ou une théologie, doit être conforme à la plénitude de la révélation de Dieu dans les Saintes Écritures (5). Une compréhension rédemptrice des Écritures vient de l'illumination du Saint-Esprit. Ainsi, la connaissance la plus précise des faits, acquise par exégèse, exposition et interprétation, n'amène pas la conversion ou la compréhension spirituelle, à moins que le Saint-Esprit ne révèle cette compréhension par la Parole et n'applique son message au coeur (6). Le sang de Jésus-Christ a été versé sur la croix pour chacun, non pas symboliquement mais littéralement ; et par ce sang il y a le pardon de tout péché (7).</br>
@@ -62,7 +63,7 @@ I Jean 1:7 : Mais si nous vivons dans la lumière, comme Dieu lui-même est dans
 Apocalypse 7:14 : Je lui répondis: “C’est toi qui le sais, mon seigneur.” Il me dit alors: “Ce sont ceux qui ont passé par la grande persécution. Ils ont lavé leurs robes et les ont blanchies dans le sang de l’Agneau."
         </p>
     </p>
-
+        </div>
   </div>
 </div>
 
