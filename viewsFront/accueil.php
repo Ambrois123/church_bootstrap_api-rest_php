@@ -190,6 +190,11 @@ ob_start();
               <div class="col-md-6">
                 <div class="card-body py-5">
                   <h5 class="card-title text-center">Nous contacter</h5>
+                  <p 
+                  class="card-text text-center"
+                  style = "font-family: 'Montserrat', sans-serif; font-size: 1.2rem; color: #ea7d73;"
+                  >Vous avez des questions sur la Bible, sur Dieu ou sur la foi chrétienne ? 
+                    Vous pouvez nous contacter au +33 6 79 27 32 52 ou remplir ce formulaire.</p>
                   <form class="row g-3" method="post" action="submitContactForm">
                     <div class="col-md-12">
                       <label for="username" class="form-label">Votre nom</label>
